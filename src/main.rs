@@ -7,8 +7,8 @@ use std::process::exit;
 // It must also have a specified type. "u32" is an "unsigned 32-bit integer."
 // u32 types can store a number from 0 to 4,294,967,295. Unsigned numbers cannot be negative.
 // These are usually used when a number typically SHOULDN'T be negative.
-const START_LOWEST: u32 = 1;
-const START_HIGHEST: u32 = 100;
+const LOWEST: u32 = 1;
+const HIGHEST: u32 = 100;
 const MAX_ATTEMPTS: u32 = 7;
 
 // In Rust, functions are defined with "fn." Because Rust is a systems-programming language,
@@ -16,7 +16,7 @@ const MAX_ATTEMPTS: u32 = 7;
 // In Rust, the main entry point is "fn main()".
 fn main() {
     // println!() is a MACRO that prints to the screen; behaves similarly to System.out.println().
-    println!("Think of a number between {} and {}.", START_LOWEST, START_HIGHEST);
+    println!("Think of a number between {} and {}.", LOWEST, HIGHEST);
     println!("I will guess it within {} tries!", MAX_ATTEMPTS);
     println!("Ready? Press ENTER.");
     // See "fn wait_for_enter()".
@@ -24,8 +24,8 @@ fn main() {
 
     // "let" defines a variable.
     // "mut" allows a variable to be modified.
-    let mut lowest= START_LOWEST;
-    let mut highest = START_HIGHEST;
+    let mut lowest= LOWEST;
+    let mut highest = HIGHEST;
 
     // Option<> types are difficult to explain in comments.
     // Just know that an Option is essentially classified as:
