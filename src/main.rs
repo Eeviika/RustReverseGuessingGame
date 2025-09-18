@@ -24,8 +24,8 @@ fn main() {
 
     // "let" defines a variable.
     // "mut" allows a variable to be modified.
-    let mut lowest= LOWEST;
-    let mut highest = HIGHEST;
+    let mut lowest_guess = LOWEST;
+    let mut highest_guess = HIGHEST;
 
     // Option<> types are difficult to explain in comments.
     // Just know that an Option is essentially classified as:
@@ -46,8 +46,8 @@ fn main() {
         // If the lowest number that the program remembers
         // is greater than the highest number that the program remembers,
         // then the user is lying / trying to cheat.
-        if lowest > highest {
-            println!("ERR! According to you, the lowest number is {}, but the highest number is {}.", lowest, highest);
+        if lowest_guess > highest_guess {
+            println!("ERR! According to you, the lowest number is {}, but the highest number is {}.", lowest_guess, highest_guess);
             println!("Are you trying to cheat?");
             exit(1); // Terminates the program with code 1.
         }
@@ -58,7 +58,7 @@ fn main() {
         }
 
         // See "fn predict_num()".
-        let predicted_num = predict_num(lowest, highest);
+        let predicted_num = predict_num(lowest_guess, highest_guess);
         println!("Alright! Attempt {}.", attempts + 1);
         if attempts == MAX_ATTEMPTS - 1 {
             println!("Final attempt!")
@@ -97,7 +97,7 @@ fn main() {
             if input == "<" {
                 // We are adding 1 here, to prevent the predicted number
                 // from being chosen again during search.
-                lowest = predicted_num + 1;
+                lowest_guess = predicted_num + 1;
                 break;
             }
 
@@ -105,7 +105,7 @@ fn main() {
             if input == ">" {
                 // Same thing here, removing 1 to prevent number from being
                 // chosen again.
-                highest = predicted_num - 1;
+                highest_guess = predicted_num - 1;
                 break;
             }
 
